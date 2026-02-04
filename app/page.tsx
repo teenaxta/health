@@ -20,10 +20,12 @@ function getLatestDate<T extends { entry_date?: string } | { start_date?: string
   rows: T[],
   key: "entry_date" | "start_date"
 ) {
+  const getValue = (row: T) =>
+    (row as Record<string, string | undefined>)[key] ?? "";
   const sorted = [...rows].sort((a, b) =>
-    (b[key] || "").localeCompare(a[key] || "")
+    getValue(b).localeCompare(getValue(a))
   );
-  return sorted[0]?.[key];
+  return getValue(sorted[0]);
 }
 
 export default function DashboardPage() {
