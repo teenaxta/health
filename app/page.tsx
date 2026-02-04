@@ -20,6 +20,7 @@ function getLatestDate<T extends { entry_date?: string } | { start_date?: string
   rows: T[],
   key: "entry_date" | "start_date"
 ) {
+  if (!rows.length) return "";
   const getValue = (row: T) =>
     (row as Record<string, string | undefined>)[key] ?? "";
   const sorted = [...rows].sort((a, b) =>
