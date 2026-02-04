@@ -272,11 +272,11 @@ export default function MedicationsPage() {
                 }
                 placeholder="Dose count (e.g. x2)"
               />
-              <Input
-                value={form.frequency}
-                onChange={(event) => setForm({ ...form, frequency: event.target.value })}
-                placeholder="Frequency (e.g. 2x/day)"
-              />
+          <Input
+            value={form.frequency ?? ""}
+            onChange={(event) => setForm({ ...form, frequency: event.target.value })}
+            placeholder="Frequency (e.g. 2x/day)"
+          />
               <Input
                 type="date"
                 value={toDateInput(form.start_date)}
