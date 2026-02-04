@@ -360,7 +360,7 @@ export default function TestsPage() {
                 placeholder="Value (numeric)"
               />
               <Input
-                value={form.unit}
+                value={form.unit ?? ""}
                 onChange={(event) => setForm({ ...form, unit: event.target.value })}
                 placeholder="Unit"
               />
