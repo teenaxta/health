@@ -47,7 +47,9 @@ export default function DashboardPage() {
   const latestWeight = weightEntries[0];
   const previousWeight = weightEntries[1];
   const weightDelta =
-    latestWeight && previousWeight ? latestWeight.value - previousWeight.value : 0;
+    latestWeight && previousWeight && latestWeight.value !== null && previousWeight.value !== null
+      ? latestWeight.value - previousWeight.value
+      : 0;
 
   const latestTestsDate = getLatestDate(tests, "entry_date");
   const latestMedDate = getLatestDate(meds, "entry_date");
